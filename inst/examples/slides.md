@@ -17,14 +17,6 @@
 
 ---
 
-..article: file
-
-# Slidify #
-
-### Reproducible HTML Slides ###
-
----
-
 ### Overview ###
 
 The objective of `slidify` is to make it easy to create reproducible HTML5 presentations from `.Rmd` files. 
@@ -76,23 +68,17 @@ The guiding philosophy of `slidify` is to completely separate writing of content
 
 This package is not available on `CRAN` as yet. A development version can be installed from `github` using the `devtools` package. 
 
-
-
-    library(devtools)
-    install_github('slidify', 'ramnathv')
-
-
+<div class="chunk"><div class="rcode"><div class="source"><pre class="knitr">library(devtools)
+install_github('slidify', 'ramnathv')
+</pre></div></div></div>
 
 
 In addition to `slidify`, you would also need to install development versions of `knitr`, `whisker` and `markdown`.
 
-
-
-    install_github('knitr', 'yihui')
-    install_github('whisker', 'edwindj')
-    install_github('markdown', 'rstudio')
-
-
+<div class="chunk"><div class="rcode"><div class="source"><pre class="knitr">install_github('knitr', 'yihui')
+install_github('whisker', 'edwindj')
+install_github('markdown', 'rstudio')
+</pre></div></div></div>
 
  
 ---
@@ -285,153 +271,3 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 6. [Interactive Slides with R, googleVis and knitR](http://goo.gl/cVS9W)
 7. [knitr, Slideshows and Dropbox](http://goo.gl/ZTSD7)
 
----
-
-### Check Python Code Highlighting ###
-
-```python
-import landslide
-class MyMacro(Macro):
-   def process(self, content, source=None):
-     return content + '<p>plop</p>', ['plopped_slide'] 
- g = generator.Generator(source='toto.md')
-g.register_macro(MyMacro)
-print g.render()
-```
-
----
-
-# Interpret the Histogram #
-
-
----
-
-..article: fill
-
-
-
-
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.svg) 
-
-
----
-
-..article: fill
-
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.svg) 
-
-
----
-
-### Google Charts ###
-
-<!-- PieChart generated in R 2.15.0 by googleVis 0.2.15 package -->
-<!-- Fri Jun  1 10:05:11 2012 -->
-
-
-<!-- jsHeader -->
-<script type="text/javascript" src="http://www.google.com/jsapi">
-</script>
-<script type="text/javascript">
- 
-// jsData 
-function gvisDataPieChartID1652d105c2164 ()
-{
-  var data = new google.visualization.DataTable();
-  var datajson =
-[
- [
- "New York",
-        200 
-],
-[
- "Boston",
-        300 
-],
-[
- "Miami",
-        400 
-],
-[
- "Chicago",
-        500 
-],
-[
- "Los Angeles",
-        600 
-],
-[
- "Houston",
-        700 
-] 
-];
-data.addColumn('string','City');
-data.addColumn('number','Popularity');
-data.addRows(datajson);
-return(data);
-}
- 
-// jsDrawChart
-function drawChartPieChartID1652d105c2164() {
-  var data = gvisDataPieChartID1652d105c2164();
-  var options = {};
-options["allowHtml"] = true;
-
-     var chart = new google.visualization.PieChart(
-       document.getElementById('PieChartID1652d105c2164')
-     );
-     chart.draw(data,options);
-    
-
-}
-  
- 
-// jsDisplayChart 
-function displayChartPieChartID1652d105c2164()
-{
-  google.load("visualization", "1", { packages:["corechart"] }); 
-  google.setOnLoadCallback(drawChartPieChartID1652d105c2164);
-}
- 
-// jsChart 
-displayChartPieChartID1652d105c2164()
- 
-<!-- jsFooter -->  
-//-->
-</script>
- 
-<!-- divChart -->
-  
-<div id="PieChartID1652d105c2164"
-  style="width: 600px; height: 500px;">
-</div>
-
-
-
----
-
-<iframe width="960" height="720" src="http://www.youtube.com/embed/RA1ZVuJsmOI?rel=0" frameborder="0" allowfullscreen></iframe>
-
----
-
-### Vimeo ###
-
-<iframe src="http://player.vimeo.com/video/40491703" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-
----
-
-# Why Should You Learn R? #
-
----
-
-<iframe width="960" height="720" src="http://www.youtube.com/embed/W2GZFeYGU3s?rel=0" frameborder="0" allowfullscreen></iframe>
-
----
-
-### Use RStudio ###
-
-..article: fill
-
-<img class = 'centered' src = "http://rstudio.org/images/screenshots/rstudio-windows.png" 
-  height = 90%>
-</img>

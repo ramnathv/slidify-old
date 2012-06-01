@@ -20,14 +20,6 @@ opts_chunk$set(highlight = TRUE, tidy = FALSE)
 
 ---
 
-..article: file
-
-# Slidify #
-
-### Reproducible HTML Slides ###
-
----
-
 ### Overview ###
 
 The objective of `slidify` is to make it easy to create reproducible HTML5 presentations from `.Rmd` files. 
@@ -282,83 +274,3 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 6. [Interactive Slides with R, googleVis and knitR](http://goo.gl/cVS9W)
 7. [knitr, Slideshows and Dropbox](http://goo.gl/ZTSD7)
 
----
-
-### Check Python Code Highlighting ###
-
-```python
-import landslide
-class MyMacro(Macro):
-   def process(self, content, source=None):
-     return content + '<p>plop</p>', ['plopped_slide'] 
- g = generator.Generator(source='toto.md')
-g.register_macro(MyMacro)
-print g.render()
-```
-
----
-
-# Interpret the Histogram #
-
-
----
-
-..article: fill
-
-```{r hist-setup, echo = F, message = F}
-require(lattice); require(latticeExtra)
-trellis.par.set(theme = theEconomist.theme(box = 'transparent'))
-lattice.options(theEconomist.opts())
-```
-
-```{r echo = F, fig.align = 'center', dev = 'svg', fig.height = 5.5, message = F}
-require(ggplot2)
-qplot(wt, data = mtcars, binwidth = I(1)) +
- xlab('Weight of Car (lb)') + ylab('Miles Per Gallon')
-```
-
----
-
-..article: fill
-
-```{r echo = F, fig.align = 'center', dev = 'svg', fig.height = 5.5, message = F}
-qplot(waiting, data = faithful) 
-```
-
----
-
-### Google Charts ###
-
-```{r google-chart, results = 'asis', message = F, echo = F}
-require(googleVis); require(hwriter)
-pie1 <- gvisPieChart(CityPopularity)
-print(pie1, 'chart')
-```
-
----
-
-<iframe width="960" height="720" src="http://www.youtube.com/embed/RA1ZVuJsmOI?rel=0" frameborder="0" allowfullscreen></iframe>
-
----
-
-### Vimeo ###
-
-<iframe src="http://player.vimeo.com/video/40491703" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-
----
-
-# Why Should You Learn R? #
-
----
-
-<iframe width="960" height="720" src="http://www.youtube.com/embed/W2GZFeYGU3s?rel=0" frameborder="0" allowfullscreen></iframe>
-
----
-
-### Use RStudio ###
-
-..article: fill
-
-<img class = 'centered' src = "http://rstudio.org/images/screenshots/rstudio-windows.png" 
-  height = 90%>
-</img>

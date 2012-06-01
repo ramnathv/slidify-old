@@ -21,9 +21,7 @@
     <script src='html5slides/slides.js'></script>
     
     <!-- LOAD HIGHLIGHTER CSS FILES AND JS -->
-    <link rel="stylesheet" href="highlight/default.css">
-    <script src="highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <link rel="stylesheet" href="highlight/acid.css">
     
     <!-- LOAD MATHJAX JS -->
     <script type="text/x-mathjax-config">
@@ -55,13 +53,6 @@
 </h1>
 
 <p><img src="http://goo.gl/EpXln" alt="slides"></p>
-
-       </article>
-       <article class = "file">
-         
-<h1>Slidify</h1>
-
-<h3>Reproducible HTML Slides</h3>
 
        </article>
        <article>
@@ -110,16 +101,16 @@
 
 <p>This package is not available on <code>CRAN</code> as yet. A development version can be installed from <code>github</code> using the <code>devtools</code> package. </p>
 
-<pre><code>library(devtools)
-install_github(&#39;slidify&#39;, &#39;ramnathv&#39;)
-</code></pre>
+<div class="chunk"><div class="rcode"><div class="source"><pre class="knitr">library(devtools)
+install_github('slidify', 'ramnathv')
+</pre></div></div></div>
 
 <p>In addition to <code>slidify</code>, you would also need to install development versions of <code>knitr</code>, <code>whisker</code> and <code>markdown</code>.</p>
 
-<pre><code>install_github(&#39;knitr&#39;, &#39;yihui&#39;)
-install_github(&#39;whisker&#39;, &#39;edwindj&#39;)
-install_github(&#39;markdown&#39;, &#39;rstudio&#39;)
-</code></pre>
+<div class="chunk"><div class="rcode"><div class="source"><pre class="knitr">install_github('knitr', 'yihui')
+install_github('whisker', 'edwindj')
+install_github('markdown', 'rstudio')
+</pre></div></div></div>
 
        </article>
        <article>
@@ -309,148 +300,6 @@ $$</p>
 <li><a href="http://goo.gl/cVS9W">Interactive Slides with R, googleVis and knitR</a></li>
 <li><a href="http://goo.gl/ZTSD7">knitr, Slideshows and Dropbox</a></li>
 </ol>
-
-       </article>
-       <article>
-         <h3>Check Python Code Highlighting</h3>
-
-<pre><code class="python">import landslide
-class MyMacro(Macro):
-   def process(self, content, source=None):
-     return content + &#39;&lt;p&gt;plop&lt;/p&gt;&#39;, [&#39;plopped_slide&#39;] 
- g = generator.Generator(source=&#39;toto.md&#39;)
-g.register_macro(MyMacro)
-print g.render()
-</code></pre>
-
-       </article>
-       <article>
-         <h1>Interpret the Histogram</h1>
-
-       </article>
-       <article class = "fill">
-         
-<p><img src="figure/unnamed-chunk-3.svg" alt="plot of chunk unnamed-chunk-3"> </p>
-
-       </article>
-       <article class = "fill">
-         
-<p><img src="figure/unnamed-chunk-4.svg" alt="plot of chunk unnamed-chunk-4"> </p>
-
-       </article>
-       <article>
-         <h3>Google Charts</h3>
-
-<!-- PieChart generated in R 2.15.0 by googleVis 0.2.15 package -->
-
-<!-- Fri Jun  1 10:05:11 2012 -->
-
-<!-- jsHeader -->
-
-<script type="text/javascript" src="http://www.google.com/jsapi">
-</script>
-
-<script type="text/javascript">
- 
-// jsData 
-function gvisDataPieChartID1652d105c2164 ()
-{
-  var data = new google.visualization.DataTable();
-  var datajson =
-[
- [
- "New York",
-        200 
-],
-[
- "Boston",
-        300 
-],
-[
- "Miami",
-        400 
-],
-[
- "Chicago",
-        500 
-],
-[
- "Los Angeles",
-        600 
-],
-[
- "Houston",
-        700 
-] 
-];
-data.addColumn('string','City');
-data.addColumn('number','Popularity');
-data.addRows(datajson);
-return(data);
-}
- 
-// jsDrawChart
-function drawChartPieChartID1652d105c2164() {
-  var data = gvisDataPieChartID1652d105c2164();
-  var options = {};
-options["allowHtml"] = true;
-
-     var chart = new google.visualization.PieChart(
-       document.getElementById('PieChartID1652d105c2164')
-     );
-     chart.draw(data,options);
-    
-
-}
-  
- 
-// jsDisplayChart 
-function displayChartPieChartID1652d105c2164()
-{
-  google.load("visualization", "1", { packages:["corechart"] }); 
-  google.setOnLoadCallback(drawChartPieChartID1652d105c2164);
-}
- 
-// jsChart 
-displayChartPieChartID1652d105c2164()
- 
-<!-- jsFooter -->  
-//-->
-</script>
- 
-
-<!-- divChart -->
-
-<div id="PieChartID1652d105c2164"
-  style="width: 600px; height: 500px;">
-</div>
-
-       </article>
-       <article>
-         <iframe width="960" height="720" src="http://www.youtube.com/embed/RA1ZVuJsmOI?rel=0" frameborder="0" allowfullscreen></iframe>
-
-       </article>
-       <article>
-         <h3>Vimeo</h3>
-
-<iframe src="http://player.vimeo.com/video/40491703" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-
-       </article>
-       <article>
-         <h1>Why Should You Learn R?</h1>
-
-       </article>
-       <article>
-         <iframe width="960" height="720" src="http://www.youtube.com/embed/W2GZFeYGU3s?rel=0" frameborder="0" allowfullscreen></iframe>
-
-       </article>
-       <article class = "fill">
-         <h3>Use RStudio</h3>
-
-
-<p><img class = 'centered' src = "http://rstudio.org/images/screenshots/rstudio-windows.png" 
-  height = 90%>
-</img></p>
 
        </article>
      </section>
