@@ -1,6 +1,6 @@
 ```{r setup, echo = F}
 library(knitr)
-# opts_knit$set(out.format = 'html')
+opts_knit$set(out.format = 'html')
 opts_chunk$set(highlight = TRUE, tidy = FALSE)
 ```
 
@@ -41,7 +41,7 @@ The guiding philosophy of `slidify` is to completely separate writing of content
 
 ..article: fill
 
-![deck.js](_images/deck.js.png)
+![deck.js](images/deck.js.png)
 
 ---
 
@@ -49,7 +49,7 @@ The guiding philosophy of `slidify` is to completely separate writing of content
 
 ..article: fill
 
-![slidy](_images/slidy.png)
+![slidy](images/slidy.png)
 
 ---
 
@@ -57,7 +57,7 @@ The guiding philosophy of `slidify` is to completely separate writing of content
 
 ..article: fill
 
-![slidy](_images/html5slides.png)
+![slidy](images/html5slides.png)
 
 ---
 

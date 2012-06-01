@@ -38,7 +38,7 @@ The guiding philosophy of `slidify` is to completely separate writing of content
 
 ..article: fill
 
-![deck.js](_images/deck.js.png)
+![deck.js](images/deck.js.png)
 
 ---
 
@@ -46,7 +46,7 @@ The guiding philosophy of `slidify` is to completely separate writing of content
 
 ..article: fill
 
-![slidy](_images/slidy.png)
+![slidy](images/slidy.png)
 
 ---
 
@@ -54,7 +54,7 @@ The guiding philosophy of `slidify` is to completely separate writing of content
 
 ..article: fill
 
-![slidy](_images/html5slides.png)
+![slidy](images/html5slides.png)
 
 ---
 
@@ -68,16 +68,16 @@ The guiding philosophy of `slidify` is to completely separate writing of content
 
 This package is not available on `CRAN` as yet. A development version can be installed from `github` using the `devtools` package. 
 
-<div class="chunk"><div class="rcode"><div class="source"><pre class="knitr">library(devtools)
-install_github('slidify', 'ramnathv')
+<div class="chunk"><div class="rcode"><div class="source"><pre class="knitr"><span class="functioncall">library</span><span class="keyword">(</span><span class="symbol">devtools</span><span class="keyword">)</span>
+<span class="functioncall">install_github</span><span class="keyword">(</span><span class="string">'slidify'</span><span class="keyword">,</span> <span class="string">'ramnathv'</span><span class="keyword">)</span>
 </pre></div></div></div>
 
 
 In addition to `slidify`, you would also need to install development versions of `knitr`, `whisker` and `markdown`.
 
-<div class="chunk"><div class="rcode"><div class="source"><pre class="knitr">install_github('knitr', 'yihui')
-install_github('whisker', 'edwindj')
-install_github('markdown', 'rstudio')
+<div class="chunk"><div class="rcode"><div class="source"><pre class="knitr"><span class="functioncall">install_github</span><span class="keyword">(</span><span class="string">'knitr'</span><span class="keyword">,</span> <span class="string">'yihui'</span><span class="keyword">)</span>
+<span class="functioncall">install_github</span><span class="keyword">(</span><span class="string">'whisker'</span><span class="keyword">,</span> <span class="string">'edwindj'</span><span class="keyword">)</span>
+<span class="functioncall">install_github</span><span class="keyword">(</span><span class="string">'markdown'</span><span class="keyword">,</span> <span class="string">'rstudio'</span><span class="keyword">)</span>
 </pre></div></div></div>
 
  
