@@ -91,3 +91,38 @@ print(pie1, 'chart')
 <img class = 'centered' src = "http://rstudio.org/images/screenshots/rstudio-windows.png" 
   height = 90%>
 </img>
+
+---
+
+### Design ###
+
+The objective of `slidify` is to make it super easy for a HTML novice to generate crisp looking `HTML5` presentations, while at the same time providing options for the power user to customize the look and feel of the slides.
+
+The source file is written in `R Markdown`. It is transformed into an `HTML5` slide deck using a set of `mustache` templates and `R` packages `whisker` and `markdown`. 
+
+
+At the heart of it is the function `slidify`. The arguments accepted by `Rmd2html` are:
+
+* `input` Source file in R markdown
+* `framework` Slide framework to use. The `HTML5` frameworks currently supported by `Rslides` are [`deck.js`][1], [`dzslides`][2], [`html5slides`][3] and [`shower`][4]. The plan is to add more frameworks over time to create a richer set of options for users.
+* `highlight` Syntax highlighter to use. Currently supports using `highlight` package from `R` or [`highlight.js`][5]
+* `histyle` Highlighting style to use.
+* `theme` Theme to be used for the presentation. Currently this option is only supported for `deck.js`. 
+* `transition` Transition to use between slides. Currently this option is only supported for `deck.js`.
+
+Please consult [`deck.js`][1] documentation for further details on supported `themes` and `transitions`
+
+## Usage ##
+
+`slidify` is designed to make it very easy for a HTML novice to generate a crisp, visually appealing `HTML5` slide deck. You can do it in just three steps!
+
+1. Write your source file in [R Markdown](http://goo.gl/KKdaf)
+2. Separate your slides using a horizontal rule `---`
+3. Run `slidify("slides.Rmd")` to generate your slide deck.
+
+
+[1]: http://imakewebthings.com/deck.js/
+[2]: http://paulrouget.com/dzslides/
+[3]: http://html5slides.googlecode.com/
+[4]: http://pepelsbey.github.com/shower/en.htm
+[5]: http://softwaremaniacs.org/soft/highlight/en/
