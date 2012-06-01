@@ -28,23 +28,21 @@ I need to decide between using `---` as slide separator vs. `!SLIDE`. The advant
 3. Host CSS and JS files on CDN so that users don't have to mess around with local files.
 
 
-## References ##
+## Consolidate ##
 
-### HTML5 Slides and R ###
+I need to consolidate the best features across the different frameworks so that a user can concentrate just on the content. Here are some of the major elements that need to be consolidated
 
+1. Animation of slides.
+2. Full page image.
+3. H1/H2/H3 styling.
 
-1. [An Introduction to R](http://goo.gl/L79xW)
-2. [How to Make HTML Slides with knitr](http://goo.gl/7C907)
-3. [Fancy HTML5 Slides with knitr and Pandoc](http://goo.gl/Uqnq3)
-4. [Visualize World Bank Data](http://goo.gl/QlTA4)
-5. [Interactive Presentations with deck.js](http://goo.gl/kdhBO)
+## To Dos.
 
-### R Markdown and knitr ###
-
-1. [Interactive Reports in R with knitr and RStudio](http://goo.gl/oTeV5)
-2. [Getting Started with R Markdown, knitr and RStudio](http://goo.gl/ALjtQ)
-3. [Dynamic Content RStudio, Markdown and Marked](http://goo.gl/84D5E)
-4. [Using Markdown with RStudio](http://goo.gl/KKdaf)
-5. [Example Reproducible Report using R Markdown](http://goo.gl/ZQF1u)
-6. [Interactive Slides with R, googleVis and knitR](http://goo.gl/cVS9W)
- 
+1. Consolidate 'build' specifications across frameworks.
+2. Create modules/macros to process `..ul: incremental` tags appropriately.
+3. Figure out a better way to create slide ids.
+4. Consolidate full page image specifications across frameworks.
+5. Redefine viewport in html5 template so that curves on slide border are visible.
+6. Add `header` specification to title in `shower` so that it is appropriately styled.
+7. Allow users to specify custom `css` and `js` files.
+8. Allow users to specify a `config.R` file which specifies presentation specific settings.
