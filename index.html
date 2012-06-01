@@ -126,40 +126,6 @@ install_github<span class="p">(</span><span class="s">'markdown'</span><span cla
 <code>R</code>  type <code>knit_theme[['get']]()</code> to see available styles</li>
 </ul><p>In order to use the <code>R</code> option, you need to include the line <code>opts_knit$set(out.format = 'html')</code> inside your <code>.Rmd</code> file. This is required to fool <code>knitr</code> into highlighting source code. Specifying it outside the document does not work as <code>knitr</code> resets it to <code>md</code> as soon as it sees the <code>.Rmd</code> extension.</p>
 
-<hr><h3>Design</h3>
-
-<p>The objective of <code>slidify</code> is to make it super easy for a HTML novice to generate crisp looking <code>HTML5</code> presentations, while at the same time providing options for the power user to customize the look and feel of the slides.</p>
-
-<p>The source file is written in <code>R Markdown</code>. It is transformed into an <code>HTML5</code> slide deck using a set of <code>mustache</code> templates and <code>R</code> packages <code>whisker</code> and <code>markdown</code>. </p>
-
-<p>At the heart of it is the function <code>slidify</code>. The arguments accepted by <code>Rmd2html</code> are:</p>
-
-<ul>
-<li>
-<code>input</code> Source file in R markdown</li>
-<li>
-<code>framework</code> Slide framework to use. The <code>HTML5</code> frameworks currently supported by <code>Rslides</code> are <a href="http://imakewebthings.com/deck.js/"><code>deck.js</code></a>, <a href="http://paulrouget.com/dzslides/"><code>dzslides</code></a>, <a href="http://html5slides.googlecode.com/"><code>html5slides</code></a> and <a href="http://pepelsbey.github.com/shower/en.htm"><code>shower</code></a>. The plan is to add more frameworks over time to create a richer set of options for users.</li>
-<li>
-<code>highlight</code> Syntax highlighter to use. Currently supports using <code>highlight</code> package from <code>R</code> or <a href="http://softwaremaniacs.org/soft/highlight/en/"><code>highlight.js</code></a>
-</li>
-<li>
-<code>histyle</code> Highlighting style to use.</li>
-<li>
-<code>theme</code> Theme to be used for the presentation. Currently this option is only supported for <code>deck.js</code>. </li>
-<li>
-<code>transition</code> Transition to use between slides. Currently this option is only supported for <code>deck.js</code>.</li>
-</ul><p>Please consult <a href="http://imakewebthings.com/deck.js/"><code>deck.js</code></a> documentation for further details on supported <code>themes</code> and <code>transitions</code></p>
-
-<h2>Usage</h2>
-
-<p><code>slidify</code> is designed to make it very easy for a HTML novice to generate a crisp, visually appealing <code>HTML5</code> slide deck. You can do it in just three steps!</p>
-
-<ol>
-<li>Write your source file in <a href="http://goo.gl/KKdaf">R Markdown</a>
-</li>
-<li>Separate your slides using a horizontal rule <code>---</code>
-</li>
-<li>Run <code>slidify("slides.Rmd")</code> to generate your slide deck.</li>
 </ol><hr><h2>License</h2>
 
 <p><code>slidify</code> is made available under the MIT License</p>
