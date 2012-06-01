@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="copyright" content="Copyright &#169; 2012 (Markus Gesmann)" /> 
+  <title></title>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+     href="http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js.gz"
+     charset="utf-8" type="text/javascript">
+  </script>
+  <!-- LOAD HIGHLIGHTER CSS FILES AND JS -->
+  <link rel="stylesheet" href="highlight/{{histyle}}.css">
+  {{#js}}
+  <script src="highlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  {{/js}}
+  
+  <!-- LOAD MATHJAX JS -->
+  {{#mathjax}}
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  {{/mathjax}}
+  
+  <!-- LOAD CUSTOM CSS AND JS -->
+  {{#custom_css}}
+  <link rel="stylesheet" href="{{.}}">
+  {{/custom_css}} 
+  {{#custom_js}}
+  <link rel="stylesheet" href="{{.}}">
+  {{/custom_js}}
+  
+  <style>
+     /* Your individual styles here, or just use inline styles if that???s
+        what you want. */
+        .section.slide.level1 p{
+          text-align:justify;
+        }
+   </style>
+</head>
+<body>
+  {{#slides}}
+  <div class="section slide level1" {{#id}}id="{{.}}"{{/id}}>
+    {{{content}}}
+  </div>
+  {{/slides}}
+</body>
+
+  

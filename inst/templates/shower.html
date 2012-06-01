@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<title>Shower Presentation Template</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=1274, user-scalable=no">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/style.css">
+	<!-- LOAD HIGHLIGHTER CSS FILES AND JS -->
+  <link rel="stylesheet" href="highlight/{{histyle}}.css">
+  {{#js}}
+  <script src="highlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  {{/js}}
+  
+  <!-- LOAD MATHJAX JS -->
+  {{#mathjax}}
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  {{/mathjax}}
+  
+  <!-- LOAD CUSTOM CSS AND JS -->
+  {{#custom_css}}
+  <link rel="stylesheet" href="{{.}}">
+  {{/custom_css}} 
+  {{#custom_js}}
+  <link rel="stylesheet" href="{{.}}">
+  {{/custom_js}}
+  
+	<!--
+		To apply styles to the certain slides
+		use slide ID to get needed elements
+		-->
+	<style>
+		#Cover h2 {
+			color:#FFF;
+			text-align:center;
+			font-size:70px;
+			}
+		#FitToWidth h2,
+		#FitToHeight h2 {
+			color:#FFF;
+			text-align:center;
+			}
+	</style>
+  
+   
+    
+</head>
+<body class="list">
+  {{#slides}}
+  <div class="slide{{#article}} {{article}}{{/article}}" id = "{{id}}"><div>
+    <section>
+      {{{content}}}
+    </section>
+  </div></div>
+  {{/slides}}
+  <div class="progress"><div></div></div>
+	<script src="shower/scripts/script.js"></script>
+	<!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+	<!-- Photos by John Carey — fiftyfootshadows.net -->
+</body>
+</html>

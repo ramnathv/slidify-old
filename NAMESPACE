@@ -1,0 +1,5 @@
+export(slidify)
+import(knitr)
+import(markdown)
+import(plyr)
+import(whisker)

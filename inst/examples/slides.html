@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mah?? (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
+<html>
+  <head>
+    <title>Presentation</title>
+    <meta charset='utf-8'>
+    
+    <!-- LOAD HTML5SLIDES CSS FILES AND JS -->
+    <link rel="stylesheet" href="html5slides/styles.css">
+    <script src='html5slides/slides.js'></script>
+    
+    <!-- LOAD HIGHLIGHTER CSS FILES AND JS -->
+    <link rel="stylesheet" href="highlight/default.css">
+    <script src="highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <!-- LOAD MATHJAX JS -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <!-- LOAD CUSTOM CSS AND JS -->
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/tables.css">
+        
+  </head>
+  
+  <body style='display: none'>
+     <section class='slides layout-regular template-default'>
+       <article class = "fill">
+         
+<h1>
+  <span class = 'yellow'>Slidify</font><br/>
+  <span class = 'white' style = 'font-size: 0.7em;'>
+    Reproducible HTML5 Slides
+  </span><br/>
+  <span class = 'white' style = 'font-size: 0.5em;'>
+    by Ramnath Vaidyanathan
+  </span>
+</h1>
+
+<p><img src="http://goo.gl/EpXln" alt="slides"></p>
+
+       </article>
+       <article class = "file">
+         
+<h1>Slidify</h1>
+
+<h3>Reproducible HTML Slides</h3>
+
+       </article>
+       <article>
+         <h3>Overview</h3>
+
+<p>The objective of <code>slidify</code> is to make it easy to create reproducible HTML5 presentations from <code>.Rmd</code> files. </p>
+
+<p>The guiding philosophy of <code>slidify</code> is to completely separate writing of content from its rendering, so that content can be written once in <code>R Markdown</code>, and rendered as an <code>HTML5</code> presentation using any of the <code>HTML5</code> slide frameworks supported.</p>
+
+       </article>
+       <article>
+         <h1>Motivation</h1>
+
+       </article>
+       <article>
+         <h1>Several HTML5 slide frameworks exist...</h1>
+
+       </article>
+       <article class = "fill">
+         <h3>deck.js</h3>
+
+
+<p><img src="_images/deck.js.png" alt="deck.js"></p>
+
+       </article>
+       <article class = "fill">
+         <h3>slidy</h3>
+
+
+<p><img src="_images/slidy.png" alt="slidy"></p>
+
+       </article>
+       <article class = "fill">
+         <h3>html5slides</h3>
+
+
+<p><img src="_images/html5slides.png" alt="slidy"></p>
+
+       </article>
+       <article>
+         <h3>... but it is a pain to write HTML</h3>
+
+       </article>
+       <article>
+         <h3>Installation</h3>
+
+<p>This package is not available on <code>CRAN</code> as yet. A development version can be installed from <code>github</code> using the <code>devtools</code> package. </p>
+
+<pre><code>library(devtools)
+install_github(&#39;slidify&#39;, &#39;ramnathv&#39;)
+</code></pre>
+
+<p>In addition to <code>slidify</code>, you would also need to install development versions of <code>knitr</code>, <code>whisker</code> and <code>markdown</code>.</p>
+
+<pre><code>install_github(&#39;knitr&#39;, &#39;yihui&#39;)
+install_github(&#39;whisker&#39;, &#39;edwindj&#39;)
+install_github(&#39;markdown&#39;, &#39;rstudio&#39;)
+</code></pre>
+
+       </article>
+       <article>
+         <h3>Motivation</h3>
+
+       </article>
+       <article>
+         <h3>Usage</h3>
+
+<p><code>slidify</code> is designed to make it very easy for a HTML novice to generate a crisp, visually appealing <code>HTML5</code> slide deck. You can do it in just three steps!</p>
+
+
+<ul class= "build">
+<li>Write your source file in <a href="http://goo.gl/KKdaf">R Markdown</a></li>
+<li>Separate your slides using a horizontal rule <code>---</code></li>
+<li>Run <code>slidify(&quot;slides.Rmd&quot;)</code> to generate your slide deck.</li>
+</ul>
+
+       </article>
+       <article>
+         <h3>Framework</h3>
+
+<p><code>slidify</code> allows you to render your slides using several HTML5 slide frameworks. Currently supported frameworks are:</p>
+
+<ul>
+<li><a href="http://imakewebthings.com/deck.js/">deck.js</a></li>
+<li><a href="http://paulrouget.com/dzslides/">dzslides</a></li>
+<li><a href="http://html5slides.googlecode.com/">html5slides</a></li>
+<li><a href="http://pepelsbey.github.com/shower/en.htm">shower</a></li>
+<li><a href="http://www.w3.org/Talks/Tools/Slidy2/Overview.html#(1)">slidy</a></li>
+</ul>
+
+<p>Extending <code>slidify</code> to accommodate other frameworks is pretty straightforward. The plan is to support more frameworks over time.</p>
+
+       </article>
+       <article>
+         <h3>Theme</h3>
+
+<p>The <code>theme</code> option lets you style your slides. Currently, this option is available only for <code>deck.js</code> which allows the following themes</p>
+
+<ul>
+<li>web-2.0</li>
+<li>swiss</li>
+<li>neon</li>
+</ul>
+
+<p>Themes are just <code>css</code> files. So it is easy to extend this option to the other frameworks if you can write css. </p>
+
+       </article>
+       <article>
+         <h3>Transition</h3>
+
+<p>The <code>transition</code> option allows you to define the transition between slides. Currently, this option is available only for <code>deck.js</code> which allows the following transitions</p>
+
+<ul>
+<li>horizontal-slide [default]</li>
+<li>vertical-slide</li>
+<li>fade</li>
+</ul>
+
+<p>Please consult <a href="http://goo.gl/UFthM">deck.js</a> documentation for more information on <code>themes</code> and <code>transitions</code></p>
+
+       </article>
+       <article>
+         <h3>Highlighter</h3>
+
+<p><code>slidify</code> is designed to be modular and syntax highlighting is one module. Currently two options are supported</p>
+
+<ul>
+<li><code>js</code> </li>
+<li><code>R</code></li>
+</ul>
+
+<p>The <code>js</code> option does client side highlighting using the javascript library <a href="http://softwaremaniacs.org/soft/highlight/en/">highlight.js</a>, while the <code>R</code> option generates a static page, highlighted using the R package <a href="http://goo.gl/uy8Ww">highlight</a>. </p>
+
+<p>You will notice that the quality of highlighting for <code>R</code> code is better when done with the <code>R</code> package, rather than <code>highlight.js</code>.</p>
+
+       </article>
+       <article>
+         <h3>Highlight Style</h3>
+
+<p><code>slidify</code> allows you complete control over how you want to style your source code using <code>css</code>. The styles currently supported depend on the <code>highlighter</code> chosen.</p>
+
+<ul>
+<li><code>js</code> see documentation for <a href="http://goo.gl/uEJj">highlight.js</a></li>
+<li><code>R</code>  type <code>knit_theme[[&#39;get&#39;]]()</code> to see available styles</li>
+</ul>
+
+<p>In order to use the <code>R</code> option, you need to include the line <code>opts_knit$set(out.format = &#39;html&#39;)</code> inside your <code>.Rmd</code> file. This is required to fool <code>knitr</code> into highlighting source code. Specifying it outside the document does not work as <code>knitr</code> resets it to <code>md</code> as soon as it sees the <code>.Rmd</code> extension.</p>
+
+       </article>
+       <article>
+         <h3>Math</h3>
+
+<p>This option allows you to write math in your presentations. <code>slidify</code> automatically adds a link to the <code>js</code> files from Mathjax CDN. Here are Maxwell&#39;s Equations from the Mathjax website.</p>
+
+<p>$$
+\begin{aligned}
+\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} & = \frac{4\pi}{c}\vec{\mathbf{j}} \\   \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
+\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
+\nabla \cdot \vec{\mathbf{B}} & = 0 \end{aligned}
+$$</p>
+
+<p>A cross-product formula, again from the Mathjax website</p>
+
+<p>$$
+\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+\frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0 \\
+\frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0
+\end{vmatrix}
+$$</p>
+
+       </article>
+       <article>
+         <h3>Animated Lists</h3>
+
+<p>It is easy to animate a list by adding the class specified <code>build</code>. For example, consider the <code>markdown</code> source below</p>
+
+<pre><code>..ul: build
+
+* Point 1
+* Point 2
+* Point 3
+</code></pre>
+
+<p>It produces the slide</p>
+
+
+<ul class= "build">
+<li>Point 1</li>
+<li>Point 2</li>
+<li>Point 3</li>
+</ul>
+
+       </article>
+       <article>
+         <h3>Issues</h3>
+
+<p>Different <code>HTML5</code> slide generation frameworks style the same elements differently. Moreover, they use different classes to define incremental builds, full page images etc.</p>
+
+<p>As a result, a slide deck that looks visually appealing in one framework, may not look as nice in another. It will require carefully overriding the <code>css</code> definitions across frameworks so as to reach some kind of consistency.</p>
+
+<p>The long-term goal of <code>slidify</code> is to be able to truly stand by the &quot;write once, style as you like&quot; idea. </p>
+
+       </article>
+       <article class = "smaller">
+         <h3>License</h3>
+
+
+<p><code>slidify</code> is made available under the MIT License. The <code>slidify</code> logo was created using <a href="http://goo.gl/zmJHP">supalogo</a>. All included <code>css</code> and <code>javascript</code> are licensed under the terms specified by the respective slide generation frameworks.</p>
+
+<p><strong>Copyright (C) 2012 Ramnath Vaidyanathan</strong></p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+       </article>
+       <article>
+         <h1>References</h1>
+
+       </article>
+       <article>
+         <h3>HTML5 Slides and R</h3>
+
+<ol>
+<li><a href="http://goo.gl/L79xW">An Introduction to R</a></li>
+<li><a href="http://goo.gl/7C907">How to Make HTML Slides with knitr</a></li>
+<li><a href="http://goo.gl/Uqnq3">Fancy HTML5 Slides with knitr and Pandoc</a></li>
+<li><a href="http://goo.gl/QlTA4">Visualize World Bank Data</a></li>
+<li><a href="http://goo.gl/kdhBO">Interactive Presentations with deck.js</a></li>
+</ol>
+
+       </article>
+       <article>
+         <h3>R Markdown and knitr</h3>
+
+<ol>
+<li><a href="http://goo.gl/oTeV5">Interactive Reports in R with knitr and RStudio</a></li>
+<li><a href="http://goo.gl/ALjtQ">Getting Started with R Markdown, knitr and RStudio</a></li>
+<li><a href="http://goo.gl/84D5E">Dynamic Content RStudio, Markdown and Marked</a></li>
+<li><a href="http://goo.gl/KKdaf">Using Markdown with RStudio</a></li>
+<li><a href="http://goo.gl/ZQF1u">Example Reproducible Report using R Markdown</a></li>
+<li><a href="http://goo.gl/cVS9W">Interactive Slides with R, googleVis and knitR</a></li>
+<li><a href="http://goo.gl/ZTSD7">knitr, Slideshows and Dropbox</a></li>
+</ol>
+
+       </article>
+       <article>
+         <h3>Check Python Code Highlighting</h3>
+
+<pre><code class="python">import landslide
+class MyMacro(Macro):
+   def process(self, content, source=None):
+     return content + &#39;&lt;p&gt;plop&lt;/p&gt;&#39;, [&#39;plopped_slide&#39;] 
+ g = generator.Generator(source=&#39;toto.md&#39;)
+g.register_macro(MyMacro)
+print g.render()
+</code></pre>
+
+       </article>
+       <article>
+         <h1>Interpret the Histogram</h1>
+
+       </article>
+       <article class = "fill">
+         
+<p><img src="figure/unnamed-chunk-3.svg" alt="plot of chunk unnamed-chunk-3"> </p>
+
+       </article>
+       <article class = "fill">
+         
+<p><img src="figure/unnamed-chunk-4.svg" alt="plot of chunk unnamed-chunk-4"> </p>
+
+       </article>
+       <article>
+         <h3>Google Charts</h3>
+
+<!-- PieChart generated in R 2.15.0 by googleVis 0.2.15 package -->
+
+<!-- Fri Jun  1 10:05:11 2012 -->
+
+<!-- jsHeader -->
+
+<script type="text/javascript" src="http://www.google.com/jsapi">
+</script>
+
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataPieChartID1652d105c2164 ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "New York",
+        200 
+],
+[
+ "Boston",
+        300 
+],
+[
+ "Miami",
+        400 
+],
+[
+ "Chicago",
+        500 
+],
+[
+ "Los Angeles",
+        600 
+],
+[
+ "Houston",
+        700 
+] 
+];
+data.addColumn('string','City');
+data.addColumn('number','Popularity');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartPieChartID1652d105c2164() {
+  var data = gvisDataPieChartID1652d105c2164();
+  var options = {};
+options["allowHtml"] = true;
+
+     var chart = new google.visualization.PieChart(
+       document.getElementById('PieChartID1652d105c2164')
+     );
+     chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart 
+function displayChartPieChartID1652d105c2164()
+{
+  google.load("visualization", "1", { packages:["corechart"] }); 
+  google.setOnLoadCallback(drawChartPieChartID1652d105c2164);
+}
+ 
+// jsChart 
+displayChartPieChartID1652d105c2164()
+ 
+<!-- jsFooter -->  
+//-->
+</script>
+ 
+
+<!-- divChart -->
+
+<div id="PieChartID1652d105c2164"
+  style="width: 600px; height: 500px;">
+</div>
+
+       </article>
+       <article>
+         <iframe width="960" height="720" src="http://www.youtube.com/embed/RA1ZVuJsmOI?rel=0" frameborder="0" allowfullscreen></iframe>
+
+       </article>
+       <article>
+         <h3>Vimeo</h3>
+
+<iframe src="http://player.vimeo.com/video/40491703" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
+       </article>
+       <article>
+         <h1>Why Should You Learn R?</h1>
+
+       </article>
+       <article>
+         <iframe width="960" height="720" src="http://www.youtube.com/embed/W2GZFeYGU3s?rel=0" frameborder="0" allowfullscreen></iframe>
+
+       </article>
+       <article class = "fill">
+         <h3>Use RStudio</h3>
+
+
+<p><img class = 'centered' src = "http://rstudio.org/images/screenshots/rstudio-windows.png" 
+  height = 90%>
+</img></p>
+
+       </article>
+     </section>
+  </body>
+
+</html>

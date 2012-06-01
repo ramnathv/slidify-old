@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mah?? (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
+<html>
+  <head>
+    <title>Presentation</title>
+    <meta charset='utf-8'>
+    
+    <!-- LOAD HTML5SLIDES CSS FILES AND JS -->
+    <link rel="stylesheet" href="html5slides/styles.css">
+    <script src='html5slides/slides.js'></script>
+    
+    <!-- LOAD HIGHLIGHTER CSS FILES AND JS -->
+    <link rel="stylesheet" href="highlight/{{histyle}}.css">
+    {{#js}}
+    <script src="highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    {{/js}}
+    
+    <!-- LOAD MATHJAX JS -->
+    {{#mathjax}}
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    {{/mathjax}}
+    
+    <!-- LOAD CUSTOM CSS AND JS -->
+    {{#custom_css}}
+    <link rel="stylesheet" href="{{.}}">
+    {{/custom_css}} 
+    {{#custom_js}}
+    <link rel="stylesheet" href="{{.}}">
+    {{/custom_js}}
+    
+  </head>
+  
+  <body style='display: none'>
+     <section class='slides layout-regular template-default'>
+       {{#slides}}
+       <article{{#article}} class = "{{article}}"{{/article}}>
+         {{{content}}}
+       </article>
+       {{/slides}}  
+     </section>
+  </body>
+
+</html>
