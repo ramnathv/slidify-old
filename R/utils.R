@@ -72,3 +72,13 @@ slide2list <- function(slide){
 	id <- make_id(length = 4)
 	list(content = content, article = article, id = id)
 }
+
+# @TODO: Add attribution to original author.
+make_id <- function(n = 1, length = 4){
+	randomString <- c(1:n)            
+	for (i in 1:n){
+		randomString[i] <- paste(sample(c(0:9, letters, LETTERS),
+			length, replace=TRUE), collapse="")
+	}
+	return(randomString)
+}
