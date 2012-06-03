@@ -46,3 +46,4 @@ I need to consolidate the best features across the different frameworks so that 
 6. Add `header` specification to title in `shower` so that it is appropriately styled.
 7. Allow users to specify custom `css` and `js` files.
 8. Allow users to specify a `config.R` file which specifies presentation specific settings.
+
