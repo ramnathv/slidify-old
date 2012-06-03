@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mah?? (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
+<html>
+  <head>
+    <title>Presentation</title>
+    <meta charset='utf-8'>
+    
+    <!-- LOAD HTML5SLIDES CSS FILES AND JS -->
+    <link rel="stylesheet" href="html5slides/styles.css">
+    <script src='html5slides/slides.js'></script>
+    
+    <!-- LOAD HIGHLIGHTER CSS FILES AND JS -->
+    <link rel="stylesheet" href="highlight/github.css">
+    <script src="highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <!-- LOAD MATHJAX JS -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <!-- LOAD CUSTOM CSS AND JS -->
+    <link rel="stylesheet" href="css/custom.css">
+        
+  </head>
+  
+  <body style='display: none'>
+     <section class='slides layout-regular template-default'>
+       <article>
+         <h1>New Tools for Reproducible Research with R</h1>
+
+<h3>JJ Allaire and Yihui Xie, 2012/06/05</h3>
+
+       </article>
+       <article>
+         <h3>Reproducible Research with R</h3>
+
+<ul>
+<li><p>Single document containing analysis, code, and results</p></li>
+<li><p>Sweave (included in R)</p>
+
+<ul>
+<li>Inspired by Donald Kunth’s Literate Programming</li>
+<li>Enables embedding R code into LaTeX documents</li>
+</ul></li>
+<li><p>New tools</p>
+
+<ul>
+<li>Add powerful new capabilities to Sweave</li>
+<li>Make authoring easier and more productive</li>
+<li>Support publishing to the web</li>
+</ul></li>
+</ul>
+
+       </article>
+       <article>
+         <h1>Prime Directive</h1>
+
+<h3>Trustworthy Software</h3>
+
+       </article>
+       <article class = "smaller">
+         
+<p><q>Those who receive the results of modern data analysis have limited opportunity to verify the results by direct observation. Users of the analysis have no option but to trust the analysis, and by extension the software that produced it. This places an obligation on all creators of software to program in such a way that the computations can be understood and trusted. This obligation I label the <strong>Prime Directive</strong>.</q></p>
+
+<div class = 'author'>Chambers, Software for Data Analysis: Programming with R</div>
+
+       </article>
+       <article>
+         <h3>Challenges</h3>
+
+<ul>
+<li><p>Extending Sweave with new features and new formats</p></li>
+<li><p>Tools that support both content authoring and coding</p></li>
+<li><p>Authoring documents with multiple representations</p></li>
+<li><p>LaTeX is not easy to learn and use for everyone</p></li>
+<li><p>Publishing to the web</p></li>
+</ul>
+
+       </article>
+       <article>
+         <h3>R Markdown</h3>
+
+<ul>
+<li><p>Markdown is an easy to write plain text format for web authoring:</p>
+
+<ul>
+<li>Formatting akin to plain-text email</li>
+<li>Allows arbitrary HTML for complex formatting</li>
+<li>Many open-source implementations available</li>
+</ul></li>
+<li><p>R Markdown is like Sweave for web pages rather than PDFs</p></li>
+<li><p>Web improves accessibility, interactivity, and collaboration</p></li>
+<li><p>Also possible to create standalone HTML files</p></li>
+</ul>
+
+       </article>
+       <article>
+         <h3>The markdown Package</h3>
+
+<p>This code produces an identical result to Knit HTML in RStudio (with no runtime dependency on RStudio):</p>
+
+<pre><code>   knit(&quot;foo.Rmd&quot;)
+   markdownToHTML(&quot;foo.md&quot;)
+   browseURL(&quot;foo.html&quot;)   
+</code></pre>
+
+<ul>
+<li><p>Enables use of R Markdown with any editor or IDE</p></li>
+<li><p>Wikis, blogs, and other content management systems</p></li>
+<li><p>Scheduled batch generation of reports on a server</p></li>
+</ul>
+
+       </article>
+       <article>
+         <h3>The knitr Package</h3>
+
+<ul>
+<li><p>Next-generation re-implementation of Sweave</p></li>
+<li><p>Adds many features to Sweave including caching, syntax highlighting, code externalization, and new graphics capabilities</p></li>
+<li><p>Very extensible design</p></li>
+<li><p>Supports publishing to the web (R HTML and R Markdown)</p></li>
+</ul>
+
+       </article>
+       <article>
+         <h3>Motivation (as a student and TA)</h3>
+
+<p>I do homework, I grade homework, and I saw this:</p>
+
+<p><img src="http://i.imgur.com/ce1BT.png" alt=""></p>
+
+<h1>Principle 1</h1>
+
+<h3>Beautiful output by default</h3>
+
+       </article>
+       <article>
+         <ul>
+<li>code highlighting (package <strong>highlight</strong>)
+
+<ul>
+<li>hundreds of themes</li>
+</ul></li>
+<li>reformat code for lazy users (package <strong>formatR</strong>)</li>
+</ul>
+
+       </article>
+       <article>
+         <h3>Code highlighting</h3>
+
+<p><img src="http://i.imgur.com/Tk0OF.png" alt=""></p>
+
+       </article>
+       <article>
+         <h3>Code reformatting</h3>
+
+<pre><code>## option tidy=FALSE
+for(k in 1:10){j=cos(sin(k)*k^2)+3;print(j-5)}
+</code></pre>
+
+<p>Same code, reformatted:</p>
+
+<pre><code>## option tidy=TRUE
+for (k in 1:10) {
+  j = cos(sin(k) * k^2) + 3
+  print(j - 5)
+}
+</code></pre>
+
+       </article>
+       <article>
+         <h1>Principle 2</h1>
+
+<h3>What you imagined is what you get</h3>
+
+       </article>
+       <article>
+         <ul>
+<li>running <strong>knitr</strong> gives you whatever you see in a normal R session</li>
+<li><code>qplot(carat, price, data = diamonds)</code> just works; no need <code>print()</code></li>
+<li>if your code produces two plots, you get two in the output
+
+<ul>
+<li>Sweave gives you one unless you use dark voodoo</li>
+</ul></li>
+<li>what if you have 50 plots? (demo)</li>
+</ul>
+
+       </article>
+       <article>
+         <h1>Principle 3</h1>
+
+<h3>Focus on R programming</h3>
+
+       </article>
+       <article>
+         <h3>Focus on R Programming</h3>
+
+<ul>
+<li>you <code>plot()</code> only; <code>cat(&#39;\\includegraphics{}&#39;)</code> or <code>dev.off()</code> is not your job
+
+<ul>
+<li><strong>knitr</strong> has all common graphical devices to save your plots into many formats; you should not manipulate a device in R code</li>
+</ul></li>
+<li>LaTeX tricks should be avoided unless they are really smart
+
+<ul>
+<li><code>\setkeys{Gin}</code> is a terrible trick; you have <code>out.width</code> in <strong>knitr</strong> (e.g. <code>out.width = &#39;.8\\textwidth&#39;</code>)</li>
+</ul></li>
+</ul>
+
+       </article>
+       <article>
+         <h1>Principle 4</h1>
+
+<h3>Be sustainable</h3>
+
+       </article>
+       <article>
+         <p>Compare</p>
+
+<pre><code>&gt; (x = 0)
+
+
+
+[1] 0
+
+
+
+&gt; x = x + 1
+</code></pre>
+
+<p>to (default):</p>
+
+<pre><code>(x = 0)
+
+
+
+## [1] 0
+
+
+
+x = x + 1
+</code></pre>
+
+<p>You do not appreciate this unless you have been a homework grader.</p>
+
+       </article>
+       <article>
+         <h1>Principle 5</h1>
+
+<h3>I write the core, you can define the decoration</h3>
+
+       </article>
+       <article>
+         <ul>
+<li>I parse/evaluate the code and give you the raw results, then you have control of everything</li>
+<li>for example
+
+<ul>
+<li>source code <code>1 + 1</code></li>
+<li>output <code>[1] 2</code></li>
+<li><em><code>\begin{verbatim}</code>_ <code>[1] 2</code> _<code>\end{verbatim}</code></em></li>
+<li>or <em><code>&lt;div class=&quot;output&quot;&gt;</code>_ <code>[1] 2</code> _<code>&lt;/div&gt;</code></em></li>
+<li>or <code>```[1] 2```</code></li>
+</ul></li>
+</ul>
+
+       </article>
+       <article>
+         <h3>Output hooks</h3>
+
+<p>You can control how the source code, normal output, warnings, messages, errors and plots are written in the output document.</p>
+
+<pre><code>knit_hooks$set(source = function(x, options) {
+    paste(&quot;\\begin{DearSource}&quot;, x, 
+          &quot;\\end{DearSource}&quot;, sep = &quot;&quot;)
+})
+</code></pre>
+
+<p>LaTeX, HTML, Markdown and reStructuredText have been supported, and it is straightforward to support other formats.</p>
+
+       </article>
+       <article>
+         <h1>Principle 6</h1>
+
+<h3>All your base are belong to us</h3>
+
+       </article>
+       <article>
+         <ul>
+<li>the <code>tikz()</code> device supported by <strong>pgfSweave</strong></li>
+<li>cache in <strong>cacheSweave</strong></li>
+<li>automatic detection of chunk dependencies in <strong>weaver</strong></li>
+<li>animations in my <strong>animation</strong> package</li>
+<li><strong>knitr</strong> &asymp; Sweave + cacheSweave + pgfSweave + weaver + <code>animation::saveLatex</code> + <code>R2HTML::RweaveHTML</code> + <code>highlight::HighlightWeaveLatex</code> + 0.2 * brew + 0.1 * SweaveListingUtils + more</li>
+<li>without copying 700 lines of code</li>
+</ul>
+
+       </article>
+       <article>
+         <h1>Principle 7</h1>
+
+<h3>Do not scare beginners</h3>
+
+       </article>
+       <article>
+         <ul>
+<li>you get reasonable output even if you do not set any options; just <code>knit()</code> it (convention over configuration)</li>
+<li>if you only have an R script, you can still do a report: <code>stitch()</code></li>
+<li>if clicking a button works, click it
+
+<ul>
+<li>RStudio</li>
+<li>LyX (demo)</li>
+</ul></li>
+</ul>
+
+       </article>
+       <article>
+         <h1>Principle 8</h1>
+
+<h3>Open source is open</h3>
+
+       </article>
+       <article>
+         <p>In theory you can use any language with <strong>knitr</strong>, e.g.</p>
+
+<pre><code>&lt;&lt;test-python, engine=&#39;python&#39;&gt;&gt;=
+x = &#39;hello, python world!&#39;
+print x
+print x.split(&#39; &#39;)
+@
+</code></pre>
+
+<p>Contributions needed!</p>
+
+       </article>
+       <article>
+         <h1>Principle 9</h1>
+
+<h3>Literate programming is programming</h3>
+
+       </article>
+       <article>
+         <ul>
+<li>we can go beyond the model of <code>Code + Documentation</code></li>
+<li>a LP document can be programmable</li>
+</ul>
+
+       </article>
+       <article>
+         <h3>Programmable reports: Example 1</h3>
+
+<pre><code>&lt;&lt;setup&gt;&gt;=
+library(gridExtra)
+g = tableGrob(head(iris, 4))
+@
+
+&lt;&lt;draw-table, dev=&#39;png&#39;, dpi=150, fig.width=convertWidth(grobWidth(g), &quot;in&quot;, value=TRUE), fig.height=convertHeight(grobHeight(g), &quot;in&quot;, value=TRUE)&gt;&gt;=
+grid.draw(g)
+@
+</code></pre>
+
+       </article>
+       <article>
+         <h3>Programmable reports: Example 2</h3>
+
+<p>Chunk hooks are functions associated with code chunks.</p>
+
+<pre><code>knit_hooks$set(tweet = function(before, options, envir) {
+      library(twitteR)
+      # Authentication with OAuth here, then
+      if (!before) {
+        msg = paste('I have finished the chunk',
+                    options$label, &#39;, my Lord!&#39;)
+    tweet(msg)
+  }
+})
+# enable the chunk hook
+opts_chunk$set(tweet = TRUE)
+</code></pre>
+
+       </article>
+       <article>
+         <h3>Conclusions</h3>
+
+<ul>
+<li>make reproducible research enjoyable first (new tools to hide gory details)</li>
+<li>all people do homework assignments before they do research, so make your homework reproducible first</li>
+<li>build extensible tools to satisfy both beginners and advanced users</li>
+<li><strong>knitr</strong> allows any input languages and any output formats; attention to details</li>
+<li>reproducible blogging, exams/solutions, books, web tutorials, ...</li>
+</ul>
+
+       </article>
+       <article>
+         <h3>IN CODE WE TRUST</h3>
+
+<p>Questions and comments?</p>
+
+       </article>
+     </section>
+  </body>
+
+</html>

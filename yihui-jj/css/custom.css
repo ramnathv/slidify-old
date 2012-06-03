@@ -1,0 +1,76 @@
+/*Put your custom css styles here. This file gets loaded the last*/
+
+@import url(http://fonts.googleapis.com/css?family=PT+Sans);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans+Caption:700);
+@import url(http://fonts.googleapis.com/css?family=Vollkorn:700italic);
+
+
+section.slide p{
+   text-align:justify;
+   font-size: 20px;
+   line-height: 24px;
+}
+section p, li, li.incremental
+article p, li, li.build{
+  font-family: 'PT Sans', sans-serif;
+  color: black;
+  font-size: 28px;
+  line-height: 34px;
+}
+
+h1 {
+  /*color: #26547c;*/
+  color: #003366;
+}
+
+h3 {
+  font-family: 'PT Sans Caption', sans-serif;
+  font-size: 36px;
+  /*color: #a32638;*/
+  color: #993300;
+}
+
+pre {
+  font-family: 'Consolas', 'Ubuntu Mono', sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+code {
+  /*  color: #9E0508; burgundy*/
+  font-family: Consolas, Monaco, 'Ubuntu Mono', sans-serif;
+  color: #26547c;
+  font-weight: bolder;
+}
+
+.rimage.left {
+  text-align: left;
+}
+.rimage.right {
+  text-align: right;
+}
+.rimage.center {
+  text-align: center;
+}
+
+.slides.template-default > article:not(.nobackground):not(.biglogo) {
+  background: url(images/knit-logo.png) 790px 610px no-repeat;   
+  background-color: white;  
+}
+
+section.smaller q, div.author,
+article.smaller q, div.author{
+/*  font-family: Vollkorn, serif;*/
+  font-size: 32px;
+  line-height: 36px;
+/*  color: rgb(106, 106, 106);*/
+}
+
+/* add light green background to slides */
+.slides.template-default > article.green {
+  background-color: #99CC99;
+}
+
+
+

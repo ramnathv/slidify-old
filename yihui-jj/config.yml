@@ -1,0 +1,5 @@
+framework: html5slides
+highlighter: js
+histyle: github
+input: slides2.Rmd
+
