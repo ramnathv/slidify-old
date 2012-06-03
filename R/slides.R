@@ -29,3 +29,9 @@ slidify <- function(input, framework = 'html5slides', highlighter = 'R', histyle
 	writeLines(whisker.render(template), html_file)
 }
 
+#' @importFrom yaml yaml.load_file
+slidify2 <- function(config_file){
+  config <- yaml.load_file(config_file)
+  do.call('slidify', config)
+}
+

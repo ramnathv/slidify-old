@@ -153,3 +153,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 6. [Interactive Slides with R, googleVis and knitR](http://goo.gl/cVS9W)
 7. [knitr, Slideshows and Dropbox](http://goo.gl/ZTSD7)
 
+
