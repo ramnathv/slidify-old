@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+  
+  slidify modifications: Ramnath Vaidyanathan (ramnath.vaidya@gmail.com)
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>{{ head_title }}</title>
+    <!-- Styles -->
+    
+    {{#embed}}
+    <style type="text/css" media="print">
+      {{ css.print.contents }}
+    </style>
+    <style type="text/css" media="screen, projection">
+      {{ css.screen.contents }}
+    </style>
+    {{/embed}}
+    
+    {{^embed}}
+    <link rel="stylesheet" media="print" href="{{ css.print.path_url }}">
+    <link rel="stylesheet" media="screen, projection" href="{{ css.screen.path_url }}">
+    
+    {{/embed}}
+    
+    <!-- USER DEFINED STYLE SHEETS -->
+    {{#custom_css}}
+      {{#embed}}
+      <style type="text/css" media="screen, projection">
+        {{ css.contents }}
+      </style>
+      {{/embed}
+      
+      {{^embed}}
+      <link rel="stylesheet" href="{{ css.path_url }}">
+      {{/embed}}
+    {{/custom_css}}
+    <!-- /Styles -->
+    
+    <!-- Javascripts -->
+    {{#embed}}
+    <script>
+      {{ js.contents }}
+    </script>
+    {{/embed}}
+    {{^embed}}
+    <script type="text/javascript" src="{{ js.path_url }}"></script>
+    {{/embed}}
+    
+    {{#custom_js}}
+      {{#embed}}
+      <script>
+        {{ js.contents }}
+      </script>
+      {{/embed}}
+      {{^embed}}
+      <script type="text/javascript" src="{{ js.path_url }}"></script>
+      {{/embed}}
+    {{/custom_js}}
+    <!-- /Javascripts -->
+</head>
+<body>
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+      
+      {{#slides}}
+      <div class="slide-wrapper">
+        <div class="slide {{#slide.classes}}">
+          <div class="inner">
+            {{#slide.header}}
+              <header>{{{.}}}</header>
+            {{/slide.header}}
+            
+            {{#slide.content}}
+            <section>{{{ slide.content }}}</section>
+            {{/slide.content}}
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+              {{{ slide.presenter_notes }}}
+            </section>
+          </div>
+          <footer>
+            {{#slide.source}}
+            <aside class="source">
+              Source: <a href="{{ slide.source.rel_path }}">{{ slide.source.rel_path }}</a>
+            </aside>
+            {{#slide.source}}
+            <aside class="page_number">
+              {{ slide.number }}/{{ num_slides }}
+            </aside>
+          </footer>
+        </div>
+      </div>
+      {{/slides}}
+    </div>
+  </div>
+  {{#toc}}
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+      {{#section}}
+      <tr id="toc-row-{{ section.number }}">
+        <th><a href="#slide{{ section.number }}">{{ section.title }}</a></th>
+        <td><a href="#slide{{ section.number }}">{{ section.number }}</a></td>
+      </tr>
+      {{/section}}
+      {{#section.sub}}
+       <tr id="toc-row-{{ subsection.number }}" class="sub">
+          <th><a href="#slide{{ subsection.number }}">{{ subsection.title }}</a></th>
+          <td><a href="#slide{{ subsection.number }}">{{ subsection.number }}</a></td>
+        </tr>
+       {{/section.sub}}
+      {{/section}}
+    </table>
+  </div>
+  {{/toc}}
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of Contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Presenter View</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source Files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide Numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Toggle screen blanking</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Show/hide slide context</th>
+        <td>c</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>main()</script>
+</body>
+</html>
